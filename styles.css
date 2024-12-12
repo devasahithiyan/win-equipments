@@ -1,0 +1,951 @@
+/*----------------------------------------
+1. Reset & Base Styles
+----------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    padding-top: 80px; /* Equal to header height to prevent overlap */
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/*----------------------------------------
+2. Header Styles
+----------------------------------------*/
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0; 
+    width: 100%;
+    height: 80px; /* Defined height for consistency */
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 20px;
+}
+
+/* Logo and Certificates */
+.logo-and-certificates {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 20px; 
+}
+
+.certificates {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.certificate {
+    height: 30px; 
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.certificate:last-child {
+    margin-right: 0;
+}
+
+.certificate:hover {
+    transform: scale(1.1);
+}
+
+/* Navigation Styles */
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #09a43f;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #09a43f;
+    transition: width .3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #005d25;
+}
+
+/*----------------------------------------
+Hamburger Menu Styles (for Mobile)
+----------------------------------------*/
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background: #09a43f;
+    transition: transform 0.3s ease;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    nav ul {
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #fff;
+        flex-direction: column;
+        align-items: center;
+        transition: left 0.3s ease;
+    }
+
+    nav ul.active {
+        left: 0;
+    }
+
+    nav ul li {
+        margin: 20px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/*----------------------------------------
+3. Hero Section Styles with Video Background
+----------------------------------------*/
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.video-background iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+.btn {
+    background-color: #09a43f;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: #007f2c;
+    transform: translateY(-3px);
+}
+
+/*----------------------------------------
+4. About Section Styles
+----------------------------------------*/
+.about {
+    background-color: #f0f0f0; 
+    padding: 60px 0;
+}
+
+.about h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #09a43f;
+    font-size: 2.5rem;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/*----------------------------------------
+5. Products Section Styles
+----------------------------------------*/
+.products {
+    padding: 80px 0;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #09a43f;
+    font-size: 2.5rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px; /* Fixed height to maintain consistency */
+    object-fit: cover; 
+    border-radius: 10px 10px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-card h3 {
+    text-align: center;
+    color: #09a43f;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.product-card p {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+}
+
+/*----------------------------------------
+6. Spares Section Styles
+----------------------------------------*/
+.spares {
+    padding: 80px 0;
+    background-color: #f9f9f9;
+}
+
+.spares h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #09a43f;
+    font-size: 2.5rem;
+}
+
+.spares-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.spares-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none; 
+    color: inherit;
+}
+
+.spares-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+}
+
+.spares-card img {
+    width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.spares-card:hover img {
+    transform: scale(1.1);
+}
+
+.spares-card h3 {
+    color: #09a43f;
+    font-size: 1.2rem;
+}
+
+/*----------------------------------------
+7. Services Section Styles
+----------------------------------------*/
+.services {
+    padding: 80px 0;
+}
+
+.services h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #09a43f;
+    font-size: 2.5rem;
+}
+
+.services ul {
+    list-style: none;
+    max-width: 600px;
+    margin: auto;
+}
+
+.services ul li {
+    background-color: #fff;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-left: 5px solid #09a43f;
+    transition: background-color 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.services ul li:hover {
+    background-color: #e6ffe6;
+}
+
+/*----------------------------------------
+8. Contact Section Styles
+----------------------------------------*/
+.contact {
+    padding: 80px 0;
+}
+
+.contact h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #09a43f;
+    font-size: 2.5rem;
+}
+
+.contact form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact form input,
+.contact form textarea {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact form input:focus,
+.contact form textarea:focus {
+    border-color: #09a43f; 
+    outline: none;
+}
+
+.contact form .btn {
+    background-color: #09a43f;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    align-self: flex-start;
+}
+
+.contact form .btn:hover {
+    background-color: #007f2c;
+    transform: translateY(-3px);
+}
+
+.contact-info {
+    background: #eef;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.location {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.location h3 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #09a43f;
+}
+
+.location iframe {
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/*----------------------------------------
+9. Footer Styles
+----------------------------------------*/
+footer {
+    background-color: #333; 
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1rem;
+}
+
+footer a {
+    color: #09a43f; 
+}
+
+footer a:hover {
+    color: #e64a19;
+}
+
+/*----------------------------------------
+10. Animations
+----------------------------------------*/
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/*----------------------------------------
+11. Product Description Styles
+----------------------------------------*/
+.product-description {
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.product-description h3 {
+    color: #09a43f;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.product-description p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/*----------------------------------------
+12. Additional Product Information Styles
+----------------------------------------*/
+.product-info-details h3 {
+    color: #09a43f;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.product-info-details ul {
+    list-style: disc inside;
+    margin-bottom: 20px;
+}
+
+.product-info-details ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.product-info-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.product-info-details th,
+.product-info-details td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.product-info-details th {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.product-info-details td {
+    background-color: #fafafa;
+    color: #555;
+}
+
+/*----------------------------------------
+13. Model Viewer Container Styles
+----------------------------------------*/
+.model-viewer-container {
+    position: relative;
+    margin: 40px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.model-viewer-container h3 {
+    color: #09a43f;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.model-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #09a43f;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none; 
+}
+
+/*----------------------------------------
+14. WhatsApp Floating Button Styles
+----------------------------------------*/
+.whatsapp-float {
+    position: fixed;
+    bottom: 40px; 
+    right: 40px; 
+    width: 60px;
+    height: 60px;
+    background-color: #25D366; /* WhatsApp green */
+    border-radius: 50%;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    overflow: visible; 
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.05);
+}
+
+.whatsapp-icon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Tooltip for "Chat with us" text */
+.whatsapp-tooltip {
+    position: absolute;
+    bottom: 70px;
+    right: 50%;
+    transform: translateX(50%);
+    background-color: #25D366;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Arrow for Tooltip */
+.whatsapp-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #25D366 transparent transparent transparent;
+}
+
+/* Responsive Adjustments for WhatsApp Button */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 30px;
+        right: 30px;
+    }
+
+    .whatsapp-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .whatsapp-tooltip {
+        width: 140px;
+        font-size: 12px;
+        bottom: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .whatsapp-float {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .whatsapp-tooltip {
+        width: 120px;
+        font-size: 11px;
+        bottom: 50px;
+    }
+}
+
+/*----------------------------------------
+15. Slick Carousel Specific Styles for Product Page
+----------------------------------------*/
+
+/* Ensure styles are scoped within .product-page */
+.product-page .product-carousel {
+    max-width: 800px; /* Adjusted max-width for better visibility */
+    margin: 0 auto 40px auto; /* Center horizontally with bottom margin */
+    overflow: hidden; /* Hide any overflowing content */
+}
+
+.product-page .carousel-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Ensure full height */
+}
+
+.product-page .carousel-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Prevent cropping */
+    border-radius: 10px;
+    max-height: 500px; /* Adjust based on your image aspect ratio */
+}
+
+/* Slick Carousel Arrows */
+.product-page .slick-prev, 
+.product-page .slick-next {
+    background-color: rgba(9, 164, 63, 0.7);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.product-page .slick-prev:hover, 
+.product-page .slick-next:hover {
+    background-color: rgba(0, 95, 37, 0.9);
+}
+
+.product-page .slick-prev {
+    left: -60px; /* Position to the left of carousel */
+}
+
+.product-page .slick-next {
+    right: -60px; /* Position to the right of carousel */
+}
+
+.product-page .slick-dots li button:before {
+    font-size: 12px;
+    color: #09a43f;
+}
+
+.product-page .slick-dots li.slick-active button:before {
+    color: #005d25;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .product-page .product-carousel {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 992px) {
+    .product-page .product-carousel {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-page .product-carousel {
+        max-width: 100%;
+    }
+
+    .product-page .slick-prev, 
+    .product-page .slick-next {
+        display: none; /* Hide arrows on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-page .carousel-image-container img {
+        max-height: 300px; /* Further reduce max-height on mobile */
+    }
+}
+
+/*----------------------------------------
+16. Product Page Specific Styles
+----------------------------------------*/
+
+/* Product Header */
+.product-page .product-header {
+    text-align: left; /* Align to the left */
+    margin-bottom: 60px;
+    padding: 20px 0;
+}
+
+/* Product Heading */
+.product-page .product-heading {
+    font-size: 2.5rem; /* Reduced font size */
+    color: #09a43f; /* Green color */
+    font-family: 'Montserrat', sans-serif; /* Changed font family */
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+}
+
+/* Beautiful Green Underline */
+.product-page .product-heading::after {
+    content: '';
+    position: absolute;
+    left: 0; /* Align underline to the left */
+    bottom: -10px; /* Adjust spacing below the text */
+    transform: translateX(0); /* Remove centering transform */
+    width: 50px; /* Length of the underline */
+    height: 3px; /* Thickness of the underline */
+    background-color: #09a43f; /* Green color */
+    border-radius: 2px;
+}
+
+/* Hover Effect for Underline */
+.product-page .product-heading:hover::after {
+    width: 70px; /* Extend the underline on hover */
+    transition: width 0.3s ease;
+}
+
+/* Subheading Styling */
+.product-page .product-subheading {
+    font-size: 1rem; /* Adjusted font size for better balance */
+    color: #555;
+    max-width: 700px;
+    margin: 10px 0 0 0; /* Removed auto margins for left alignment */
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .product-page .product-heading {
+        font-size: 2rem; /* Further reduced font size for tablets */
+        letter-spacing: 1px;
+    }
+
+    .product-page .product-heading::after {
+        width: 40px; /* Shorter underline on smaller screens */
+        height: 2px;
+    }
+
+    .product-page .product-subheading {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-page .product-heading {
+        font-size: 1.8rem; /* Further reduced font size for mobile */
+        letter-spacing: 0.5px;
+    }
+
+    .product-page .product-heading::after {
+        width: 30px;
+        height: 1.5px;
+    }
+
+    .product-page .product-subheading {
+        font-size: 0.8rem;
+    }
+}
+
+/*----------------------------------------
+End of `styles.css`
+----------------------------------------*/

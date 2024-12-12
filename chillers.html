@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chiller - Win Equipments</title>
+
+    <!-- Meta Tags -->
+    <meta name="description" content="Explore Win Equipments' advanced Chillers designed for efficient cooling solutions in various industrial applications."/>
+    <meta name="keywords" content="Chiller, Industrial Cooling, HVAC Systems, Win Equipments"/>
+    
+    <!-- Open Graph Meta Tags for SEO and Social Media Sharing -->
+    <meta property="og:title" content="Chiller - Win Equipments"/>
+    <meta property="og:description" content="Explore Win Equipments' advanced Chillers designed for efficient cooling solutions in various industrial applications."/>
+    <meta property="og:image" content="https://www.winequipments.com/images/chiller_og.jpg"/>
+    <meta property="og:url" content="https://www.winequipments.com/chiller.html"/>
+    <meta property="og:type" content="product"/>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+    
+    <!-- Google Fonts -->
+    <!-- Roboto for body text and Montserrat for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet"/>
+    
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+    
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!-- Slick Theme CSS for default styling -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    
+    <!-- Include model-viewer library -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="styles.css"/>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Chiller",
+      "image": [
+        "https://www.winequipments.com/images/Products/chiller_1.jpg",
+        "https://www.winequipments.com/images/Products/chiller_2.jpg",
+        "https://www.winequipments.com/images/Products/chiller_3.jpg"
+       ],
+      "description": "Win Equipments' Chillers are engineered to provide efficient and reliable cooling solutions for a wide range of industrial applications. Designed for durability and optimal performance.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Win Equipments"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "2500",
+        "priceValidUntil": "2025-12-31",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.winequipments.com/chiller.html"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-and-certificates">
+                <div class="logo">
+                    <a href="index.html#home">
+                        <img src="images/logo.png" alt="Win Equipments Logo"/>
+                    </a>
+                </div>
+                <div class="certificates">
+                    <img src="images/iso.png" alt="ISO 9001 Certified" class="certificate" loading="lazy"/>
+                    <img src="images/iaf.png" alt="IAF Accredited" class="certificate" loading="lazy"/>
+                    <img src="images/dac.png" alt="DAC Certified" class="certificate" loading="lazy"/>
+                </div>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <!-- Hamburger Icon: Three bars -->
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="index.html#spares">Spares</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="chiller.html" class="active">Chiller</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+ 
+    <!-- Product Details Section -->
+    <section class="product-details" data-aos="fade-up">
+        <div class="container product-page">
+            <!-- Product Header -->
+            <div class="product-header">
+                <h1 class="product-heading">Chillers</h1>
+                <div class="heading-divider"></div>
+                <p class="product-subheading">Efficient & Reliable Cooling Solutions for Industrial Applications</p>
+            </div>
+            
+            <!-- Image Carousel -->
+            <div class="product-carousel" data-aos="fade-up">
+                <div class="carousel-image-container">
+                    <img src="images/Products/Refrigirated air dryer 1.png" alt="Chiller Image 1" loading="lazy"/>
+                </div>
+                <div class="carousel-image-container">
+                    <img src="images/Products/Refrigirated air dryer 2.png" alt="Chiller Image 2" loading="lazy"/>
+                </div>
+                <div class="carousel-image-container">
+                    <img src="images/Products/Refrigirated air dryer final .jpg" alt="Chiller Image 3" loading="lazy"/>
+                </div>
+                <!-- Add more slides as needed -->
+            </div>
+            
+            <!-- Product Description Under Carousel -->
+            <div class="product-description" data-aos="fade-up">
+                <h3>Product Description</h3>
+                <p>Our <strong>Chillers</strong> are designed to deliver efficient and reliable cooling solutions tailored to meet the demands of various industrial applications. Engineered for durability and optimal performance, these chillers ensure consistent temperature control and energy efficiency.</p>
+            </div>
+            
+            <!-- Interactive 3D Model Section -->
+            <div class="model-viewer-container" data-aos="fade-up">
+                <h3>View Our Chiller in 3D</h3>
+                <model-viewer id="productModel" 
+                              src="models/chillers.glb" 
+                              alt="Chiller 3D Model" 
+                              auto-rotate 
+                              camera-controls 
+                              background-color="#f4f4f4" 
+                              style="width: 100%; height: 500px; border-radius: 10px;">
+                    <p>The below model is a sample illustration of our Chiller</p>
+                </model-viewer>
+                <div id="modelLoader" class="model-loader">
+                    <p>Loading 3D Model...</p>
+                </div>
+            </div>
+            
+            <!-- Additional Product Information Under 3D Model -->
+            <div class="product-info-details" data-aos="fade-up">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>High-efficiency cooling mechanisms</li>
+                    <li>Energy-saving designs</li>
+                    <li>Compact and space-saving models</li>
+                    <li>Low maintenance requirements</li>
+                    <li>Advanced control systems for precise temperature management</li>
+                </ul>
+                
+                <h3>Specifications</h3>
+                <table>
+                    <tr>
+                        <th>Cooling Capacity</th>
+                        <td>100 - 1000 Tons</td>
+                    </tr>
+                    <tr>
+                        <th>Operating Temperature Range</th>
+                        <td>5°C to 35°C</td>
+                    </tr>
+                    <tr>
+                        <th>Power Consumption</th>
+                        <td>Varies based on capacity</td>
+                    </tr>
+                    <tr>
+                        <th>Dimensions</th>
+                        <td>Customizable based on model</td>
+                    </tr>
+                    <tr>
+                        <th>Material</th>
+                        <td>Stainless Steel, Aluminum</td>
+                    </tr>
+                </table>
+                
+                <h3>Price Range</h3>
+                <p>Our Chillers are competitively priced between <strong>$2,500</strong> and <strong>$15,000</strong>, depending on the capacity and customization options.</p>
+                
+                <h3>Why Choose Our Chillers?</h3>
+                <p>Opting for Win Equipments' <strong>Chillers</strong> ensures that your cooling systems are both efficient and reliable. With a focus on energy conservation and minimal maintenance, our chillers provide long-term value and performance, making them the ideal choice for industrial cooling needs.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="contact" data-aos="fade-up">
+        <div class="container contact-content">
+            <h2>Contact Us</h2>
+            <form action="https://getform.io/f/aollrgmb" method="POST">
+                
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Your Name" 
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="help-text">(Format: 1234567890)</span></label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        pattern="[0-9]{10,15}" 
+                        placeholder="Your Phone Number" 
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="water_flow">Water Flow Rate (m³/hr)</label>
+                    <input 
+                        type="number" 
+                        id="water_flow" 
+                        name="water_flow" 
+                        step="0.01" 
+                        min="0" 
+                        placeholder="e.g., 150.50" 
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="temp_inlet">Temperature Inlet of Chiller (°C)</label>
+                    <input 
+                        type="number" 
+                        id="temp_inlet" 
+                        name="temp_inlet" 
+                        step="0.1" 
+                        min="-50" 
+                        max="150" 
+                        placeholder="e.g., 25.5" 
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="temp_outlet">Outlet Requirement of Chiller (°C)</label>
+                    <input 
+                        type="number" 
+                        id="temp_outlet" 
+                        name="temp_outlet" 
+                        step="0.1" 
+                        min="-50" 
+                        max="150" 
+                        placeholder="e.g., 10.0" 
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="application">Application</label>
+                    <textarea 
+                        id="application" 
+                        name="application" 
+                        rows="5" 
+                        placeholder="Describe the application of the chiller" 
+                        required
+                    ></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <p><strong>Address:</strong> 1234 Industrial Ave, City, Country</p>
+                <p><strong>Phone:</strong> +1 (234) 567-890</p>
+                <p><strong>Email:</strong> info@winequipments.com</p>
+            </div>
+            
+            <!-- Location Section -->
+            <div class="location">
+                <h3>Our Location</h3>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=YOUR_MAP_EMBED_URL" 
+                    width="100%" 
+                    height="300" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    title="Company Location"
+                ></iframe>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Win Equipments. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Floating Button (Optional) -->
+    <div class="whatsapp-float">
+        <div class="whatsapp-tooltip">Chat with our bot</div>
+        <a href="https://wa.me/message/NS75YDDMI5MEP1" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp" class="whatsapp-icon">
+        </a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- AOS Library for Scroll Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Slick Carousel JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    
+    <!-- Link to External JS -->
+    <script src="script.js"></script>
+    
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

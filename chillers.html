@@ -5,38 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Chiller - Win Equipments</title>
 
-    <!-- Meta Tags -->
+    <!-- Meta & OG Tags -->
     <meta name="description" content="Explore Win Equipments' advanced Chillers designed for efficient cooling solutions in various industrial applications."/>
     <meta name="keywords" content="Chiller, Industrial Cooling, HVAC Systems, Win Equipments"/>
-    
-    <!-- Open Graph Meta Tags for SEO and Social Media Sharing -->
     <meta property="og:title" content="Chiller - Win Equipments"/>
     <meta property="og:description" content="Explore Win Equipments' advanced Chillers designed for efficient cooling solutions in various industrial applications."/>
     <meta property="og:image" content="https://www.winequipments.com/images/chiller_og.jpg"/>
     <meta property="og:url" content="https://www.winequipments.com/chiller.html"/>
     <meta property="og:type" content="product"/>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
-    
+
     <!-- Google Fonts -->
-    <!-- Roboto for body text and Montserrat for headings -->
+    <!-- Roboto for body and Montserrat for headings -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet"/>
-    
-    <!-- AOS Library for Scroll Animations -->
+
+    <!-- AOS Library -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
-    
+
     <!-- Slick Carousel CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <!-- Slick Theme CSS for default styling -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    
-    <!-- Include model-viewer library -->
+
+    <!-- model-viewer -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
-    <!-- Link to External CSS -->
+    <!-- External CSS -->
     <link rel="stylesheet" href="styles.css"/>
-    
+
     <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
@@ -82,7 +79,6 @@
                 </div>
             </div>
             <button class="menu-toggle" aria-label="Toggle Menu">
-                <!-- Hamburger Icon: Three bars -->
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -102,12 +98,11 @@
     </header>
  
     <!-- Product Details Section -->
-    <section class="product-details" data-aos="fade-up">
-        <div class="container product-page">
+    <section class="product-details product-page" data-aos="fade-up" style="background: linear-gradient(to bottom, #f9f9f9, #ffffff); padding-bottom:80px;">
+        <div class="container">
             <!-- Product Header -->
             <div class="product-header">
                 <h1 class="product-heading">Chillers</h1>
-                <div class="heading-divider"></div>
                 <p class="product-subheading">Efficient & Reliable Cooling Solutions for Industrial Applications</p>
             </div>
             
@@ -122,7 +117,6 @@
                 <div class="carousel-image-container">
                     <img src="images/Products/Refrigirated air dryer final .jpg" alt="Chiller Image 3" loading="lazy"/>
                 </div>
-                <!-- Add more slides as needed -->
             </div>
             
             <!-- Product Description Under Carousel -->
@@ -188,7 +182,31 @@
                 
                 <h3>Why Choose Our Chillers?</h3>
                 <p>Opting for Win Equipments' <strong>Chillers</strong> ensures that your cooling systems are both efficient and reliable. With a focus on energy conservation and minimal maintenance, our chillers provide long-term value and performance, making them the ideal choice for industrial cooling needs.</p>
+                
+                <!-- Download Brochure Button -->
+                <div class="download-brochure" data-aos="fade-up">
+                    <a href="documents/Chiller_Brochure.pdf" class="btn" download>Download Brochure</a>
+                </div>
             </div>
+
+            <!-- Testimonials Section -->
+            <section class="testimonials" data-aos="fade-up">
+                <h3>What Our Clients Say</h3>
+                <div class="testimonials-carousel">
+                    <div class="testimonial-item">
+                        <p>"Win Equipments' chillers have significantly improved our production efficiency. Highly recommend their reliable solutions."</p>
+                        <h4>- John Doe, Factory Manager</h4>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Exceptional customer service and top-notch products. The chiller system we installed last year is still performing flawlessly."</p>
+                        <h4>- Jane Smith, Operations Director</h4>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Their expertise in project consultancy was invaluable. Our cooling needs were met beyond expectations."</p>
+                        <h4>- Michael Brown, Plant Engineer</h4>
+                    </div>
+                </div>
+            </section>
         </div>
     </section>
     
@@ -282,7 +300,6 @@
                 <p><strong>Email:</strong> info@winequipments.com</p>
             </div>
             
-            <!-- Location Section -->
             <div class="location">
                 <h3>Our Location</h3>
                 <iframe 
@@ -305,7 +322,7 @@
         </div>
     </footer>
     
-    <!-- WhatsApp Floating Button (Optional) -->
+    <!-- WhatsApp Floating Button -->
     <div class="whatsapp-float">
         <div class="whatsapp-tooltip">Chat with our bot</div>
         <a href="https://wa.me/message/NS75YDDMI5MEP1" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
@@ -313,21 +330,31 @@
         </a>
     </div>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Back to Top">
+        &uarr;
+    </button>
+
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
-    <!-- AOS Library for Scroll Animations -->
+    <!-- AOS Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     
     <!-- Slick Carousel JS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     
-    <!-- Link to External JS -->
+    <!-- External JS -->
     <script src="script.js"></script>
     
     <!-- Initialize AOS -->
     <script>
-        AOS.init();
+        AOS.init({
+            duration: 300, // Reduced animation duration for faster appearance
+            easing: 'ease-in-out', // Animation easing
+            once: true, // Whether animation should happen only once while scrolling down
+            offset: 100 // Offset (in px) from the original trigger point
+        });
     </script>
 </body>
 </html>

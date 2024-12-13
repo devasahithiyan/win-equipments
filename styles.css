@@ -4,7 +4,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
 }
 
 html {
@@ -108,6 +108,7 @@ nav ul li a {
     transition: color 0.3s ease;
     position: relative;
     padding: 5px 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 nav ul li a::after {
@@ -115,7 +116,7 @@ nav ul li a::after {
     display: block;
     width: 0;
     height: 2px;
-    background: #09a43f;
+    background-color: #09a43f;
     transition: width .3s;
     position: absolute;
     bottom: -5px;
@@ -188,17 +189,23 @@ Hamburger Menu Styles (for Mobile)
 
 .video-background {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%) scale(1.2); /* Default scale for desktop */
     z-index: -2;
 }
 
 .video-background iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    pointer-events: none; /* Allows clicks to pass through the iframe */
 }
 
 .overlay {
@@ -223,11 +230,13 @@ Hamburger Menu Styles (for Mobile)
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .hero-content p {
     font-size: 1.5rem;
     margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .btn {
@@ -240,11 +249,57 @@ Hamburger Menu Styles (for Mobile)
     transition: background-color 0.3s ease, transform 0.3s ease;
     text-decoration: none;
     font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .btn:hover {
     background-color: #007f2c;
     transform: translateY(-3px);
+}
+
+/*----------------------------------------
+Responsive Adjustments for Mobile Devices
+----------------------------------------*/
+@media (max-width: 768px) {
+    .hero {
+        height: auto; /* Allow height to adjust based on content */
+    }
+
+    .video-background {
+        transform: translate(-50%, -50%) scale(1.6); /* Increased scale for mobile */
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem; /* Reduced from 3rem to 2.2rem */
+    }
+
+    .hero-content p {
+        font-size: 1.1rem; /* Reduced from 1.5rem to 1.1rem */
+    }
+
+    .btn {
+        padding: 10px 20px; /* Slightly reduced padding */
+        font-size: 0.9rem; /* Reduced from 1rem to 0.9rem */
+    }
+}
+
+@media (max-width: 480px) {
+    .video-background {
+        transform: translate(-50%, -50%) scale(1.8); /* Further increased scale for very small screens */
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem; /* Further reduced from 2.2rem to 1.8rem */
+    }
+
+    .hero-content p {
+        font-size: 0.95rem; /* Reduced from 1.1rem to 0.95rem */
+    }
+
+    .btn {
+        padding: 8px 16px; /* Further reduced padding */
+        font-size: 0.8rem; /* Reduced from 0.9rem to 0.8rem */
+    }
 }
 
 /*----------------------------------------
@@ -260,41 +315,233 @@ Hamburger Menu Styles (for Mobile)
     margin-bottom: 40px;
     color: #09a43f;
     font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
 }
 
-.about p {
-    max-width: 800px;
-    margin: 20px auto;
+.about-content {
+    display: flex;
+    align-items: stretch; /* Changed from center to stretch */
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.about-image {
+    flex: 1 1 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
+}
+
+.about-text {
+    flex: 1 1 500px;
+    font-family: 'Roboto', sans-serif; /* Ensure body text uses Roboto */
+}
+
+.about-text p {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 1rem; /* Reduced from 1.1rem to 1rem */
+    line-height: 1.6;
+    color: #555;
+}
+
+.about-features {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 30px 0;
+    gap: 20px;
+}
+
+.feature-item {
+    flex: 1 1 30%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
-    font-size: 1.1rem;
-    line-height: 1.8;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item i {
+    font-size: 2rem;
+    color: #09a43f;
+    margin-bottom: 10px;
+}
+
+.feature-item h4 {
+    color: #09a43f;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif; /* Use Poppins for feature headings */
+}
+
+.feature-item p {
+    font-size: 0.95rem; /* Slightly reduced from 1rem to 0.95rem */
+    color: #555;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.about-stats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-item {
+    flex: 1 1 30%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-item h3 {
+    font-size: 2rem;
+    color: #09a43f;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif; /* Use Poppins for stats headings */
+}
+
+.stat-item p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.about-cta .btn {
+    display: inline-block;
+    background-color: #09a43f;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif; /* Use Poppins for buttons */
+}
+
+.about-cta .btn:hover {
+    background-color: #007f2c;
+    transform: translateY(-3px);
+}
+
+/* Responsive Adjustments for About Us Section */
+@media (max-width: 768px) {
+    .about-text p {
+        font-size: 0.95rem; /* Further reduced font size on tablets */
+    }
+
+    .feature-item h4 {
+        font-size: 1.1rem;
+    }
+
+    .feature-item p {
+        font-size: 0.9rem;
+    }
+
+    .stat-item h3 {
+        font-size: 1.8rem;
+    }
+
+    .stat-item p {
+        font-size: 0.95rem;
+    }
+
+    .about-cta .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text p {
+        font-size: 0.9rem; /* Further reduced on small mobiles */
+    }
+
+    .feature-item h4 {
+        font-size: 1rem;
+    }
+
+    .feature-item p {
+        font-size: 0.85rem;
+    }
+
+    .stat-item h3 {
+        font-size: 1.6rem;
+    }
+
+    .stat-item p {
+        font-size: 0.9rem;
+    }
+
+    .about-cta .btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
 }
 
 /*----------------------------------------
 5. Products Section Styles
 ----------------------------------------*/
-.products {
+.home-products {
     padding: 80px 0;
+    background-color: #f4f4f4; /* Optional: Background color for the products section */
 }
 
-.products h2 {
+.home-products h2 {
     text-align: center;
     margin-bottom: 40px;
     color: #09a43f;
     font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    display: inline-block;
 }
 
-.product-grid {
+.home-products h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #09a43f;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.home-product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
 }
 
-.product-card {
+.home-product-card {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -302,24 +549,34 @@ Hamburger Menu Styles (for Mobile)
     color: inherit; 
 }
 
-.product-card:hover {
-    transform: scale(1.05);
+.home-product-card:hover {
+    transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-.product-card img {
+.home-product-card .product-image {
     width: 100%;
-    height: 200px; 
-    object-fit: cover; 
-    border-radius: 10px 10px 0 0;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    position: relative;
+    background-color: #f9f9f9; /* Optional: Placeholder background */
+}
+
+.home-product-card .product-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    transform: translate(-50%, -50%);
     transition: transform 0.3s ease;
 }
 
-.product-card:hover img {
-    transform: scale(1.05);
+.home-product-card:hover .product-image img {
+    transform: translate(-50%, -50%) scale(1.05);
 }
 
-.product-info {
+.home-product-card .product-info {
     padding: 15px;
     flex-grow: 1;
     display: flex;
@@ -327,17 +584,56 @@ Hamburger Menu Styles (for Mobile)
     justify-content: space-between;
 }
 
-.product-card h3 {
+.home-product-card h3 {
     text-align: center;
     color: #09a43f;
     margin-bottom: 10px;
     font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
 }
 
-.product-card p {
+.home-product-card p {
     text-align: center;
     font-size: 1rem;
     color: #555;
+    line-height: 1.5;
+}
+
+/* Responsive Adjustments for Home Page */
+@media (max-width: 768px) {
+    .home-products h2 {
+        font-size: 2rem;
+    }
+
+    .home-product-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .home-product-card p {
+        font-size: 0.95rem;
+    }
+
+    .home-products .home-product-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-products h2 {
+        font-size: 1.8rem;
+    }
+
+    .home-product-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .home-product-card p {
+        font-size: 0.9rem;
+    }
+    
+    .home-product-card .product-image {
+        padding-top: 75%; /* Adjust aspect ratio for smaller screens if needed */
+    }
 }
 
 /*----------------------------------------
@@ -353,6 +649,7 @@ Hamburger Menu Styles (for Mobile)
     margin-bottom: 40px;
     color: #09a43f;
     font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .spares-grid {
@@ -395,6 +692,7 @@ Hamburger Menu Styles (for Mobile)
 .spares-card h3 {
     color: #09a43f;
     font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 /*----------------------------------------
@@ -409,12 +707,14 @@ Hamburger Menu Styles (for Mobile)
     margin-bottom: 40px;
     color: #09a43f;
     font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .services ul {
     list-style: none;
     max-width: 600px;
     margin: auto;
+    font-family: 'Roboto', sans-serif;
 }
 
 .services ul li {
@@ -431,7 +731,96 @@ Hamburger Menu Styles (for Mobile)
 }
 
 /*----------------------------------------
-8. Contact Section Styles
+8. Our Clients Section Styles
+----------------------------------------*/
+.our-clients {
+    padding: 80px 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.our-clients h2 {
+    font-size: 2.5rem;
+    color: #09a43f;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.our-clients h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #09a43f;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.our-clients p {
+    font-size: 1.1rem;
+    color: #555;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.clients-carousel {
+    /* Removed display: flex and justify-content */
+}
+
+.client-logo {
+    /* Removed display: flex */
+    outline: none;
+    padding: 20px; /* Ensure sufficient padding around logos */
+}
+
+.client-logo img {
+    max-width: 150px;
+    max-height: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    filter: grayscale(20%);
+}
+
+.client-logo:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    filter: none;
+}
+
+/* Responsive adjustments for Our Clients */
+@media (max-width: 768px) {
+    .our-clients p {
+        font-size: 1rem;
+    }
+
+    .client-logo img {
+        max-width: 120px;
+        max-height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .our-clients h2 {
+        font-size: 2rem;
+    }
+
+    .our-clients p {
+        font-size: 0.95rem;
+    }
+
+    .client-logo img {
+        max-width: 100px;
+        max-height: 40px;
+    }
+}
+
+/*----------------------------------------
+9. Contact Section Styles
 ----------------------------------------*/
 .contact {
     padding: 80px 0;
@@ -442,6 +831,7 @@ Hamburger Menu Styles (for Mobile)
     margin-bottom: 40px;
     color: #09a43f;
     font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .contact form {
@@ -457,7 +847,7 @@ Hamburger Menu Styles (for Mobile)
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
-    font-family: inherit;
+    font-family: 'Roboto', sans-serif;
     color: #333;
     margin-bottom: 20px;
 }
@@ -477,6 +867,7 @@ Hamburger Menu Styles (for Mobile)
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
     align-self: flex-start;
+    font-family: 'Poppins', sans-serif;
 }
 
 .contact form .btn:hover {
@@ -490,6 +881,7 @@ Hamburger Menu Styles (for Mobile)
     border-radius: 10px;
     margin-top: 30px;
     text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .contact-info p {
@@ -506,6 +898,7 @@ Hamburger Menu Styles (for Mobile)
     margin-bottom: 10px;
     font-size: 1.5em;
     color: #09a43f;
+    font-family: 'Poppins', sans-serif;
 }
 
 .location iframe {
@@ -515,7 +908,7 @@ Hamburger Menu Styles (for Mobile)
 }
 
 /*----------------------------------------
-9. Footer Styles
+10. Footer Styles
 ----------------------------------------*/
 footer {
     background-color: #333; 
@@ -523,10 +916,12 @@ footer {
     text-align: center;
     padding: 20px 0;
     font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 footer a {
     color: #09a43f; 
+    transition: color 0.3s ease;
 }
 
 footer a:hover {
@@ -534,7 +929,7 @@ footer a:hover {
 }
 
 /*----------------------------------------
-10. Animations
+11. Animations
 ----------------------------------------*/
 @keyframes fadeInDown {
     from {
@@ -568,7 +963,7 @@ footer a:hover {
 }
 
 /*----------------------------------------
-11. Product Description Styles
+12. Product Description Styles
 ----------------------------------------*/
 .product-description {
     background-color: #fff;
@@ -576,32 +971,37 @@ footer a:hover {
     margin: 30px 0;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: 'Roboto', sans-serif;
 }
 
 .product-description h3 {
     color: #09a43f;
     margin-bottom: 15px;
     font-size: 1.8rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .product-description p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #555;
+    font-family: 'Roboto', sans-serif;
 }
 
 /*----------------------------------------
-12. Additional Product Information Styles
+13. Additional Product Information Styles
 ----------------------------------------*/
 .product-info-details h3 {
     color: #09a43f;
     margin-bottom: 15px;
     font-size: 1.8rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .product-info-details ul {
     list-style: disc inside;
     margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .product-info-details ul li {
@@ -622,11 +1022,13 @@ footer a:hover {
     padding: 10px;
     text-align: left;
     font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
 }
 
 .product-info-details th {
     background-color: #f0f0f0;
     color: #333;
+    font-family: 'Poppins', sans-serif;
 }
 
 .product-info-details td {
@@ -634,8 +1036,19 @@ footer a:hover {
     color: #555;
 }
 
+.product-info-details strong {
+    color: #09a43f;
+    font-family: 'Roboto', sans-serif;
+}
+
+.product-info-details p {
+    font-size: 1.1rem;
+    color: #555;
+    font-family: 'Roboto', sans-serif;
+}
+
 /*----------------------------------------
-13. Model Viewer Container Styles
+14. Model Viewer Container Styles
 ----------------------------------------*/
 .model-viewer-container {
     position: relative;
@@ -648,6 +1061,7 @@ footer a:hover {
     color: #09a43f;
     margin-bottom: 20px;
     font-size: 1.8rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .model-loader {
@@ -660,11 +1074,153 @@ footer a:hover {
     background: rgba(255, 255, 255, 0.8);
     padding: 10px 20px;
     border-radius: 5px;
-    display: none; 
+    display: none; /* Hidden by default */
+    font-family: 'Roboto', sans-serif;
 }
 
 /*----------------------------------------
-14. WhatsApp Floating Button Styles
+15. Testimonials Section Styles
+----------------------------------------*/
+.testimonials {
+    padding: 60px 0;
+}
+
+.testimonials h3 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #09a43f;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.testimonials-carousel {
+    max-width: 800px;
+    margin: auto;
+}
+
+.testimonial-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    margin: 0 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.testimonial-item p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.testimonial-item h4 {
+    font-size: 1rem;
+    color: #09a43f;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*----------------------------------------
+16. Product Page Specific Styles
+----------------------------------------*/
+.product-page .product-header {
+    text-align: left; 
+    margin-bottom: 60px;
+    padding: 20px 0;
+}
+
+.product-page .product-heading {
+    font-size: 2rem;
+    color: #09a43f;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.product-page .product-heading::after {
+    content: '';
+    position: absolute;
+    left: 0; 
+    bottom: -6px; 
+    width: 40px; 
+    height: 3px; 
+    background-color: #09a43f; 
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.product-page .product-heading:hover::after {
+    width: 60px; 
+}
+
+.product-page .product-subheading {
+    font-size: 1rem; 
+    color: #555;
+    max-width: 700px;
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+}
+
+@media (max-width: 992px) {
+    .product-page .product-carousel {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-page .product-carousel {
+        max-width: 100%;
+    }
+
+    .product-page .slick-prev, 
+    .product-page .slick-next {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-page .carousel-image-container img {
+        max-height: 250px;
+    }
+}
+
+/*----------------------------------------
+17. Back to Top Button Styles
+----------------------------------------*/
+#backToTop {
+    position: fixed;
+    bottom: 100px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    background-color: #09a43f;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+#backToTop:hover {
+    background-color: #007f2c;
+    transform: translateY(-3px);
+}
+
+/*----------------------------------------
+18. WhatsApp Floating Button Styles
 ----------------------------------------*/
 .whatsapp-float {
     position: fixed;
@@ -708,6 +1264,7 @@ footer a:hover {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    font-family: 'Roboto', sans-serif;
 }
 
 .whatsapp-float:hover .whatsapp-tooltip {
@@ -767,266 +1324,41 @@ footer a:hover {
 }
 
 /*----------------------------------------
-15. Slick Carousel Specific Styles for Product Page
+19. Slick Carousel Specific Styles for Our Clients
 ----------------------------------------*/
-
-.product-page .product-carousel {
-    max-width: 800px;
-    margin: 0 auto 40px auto; 
-    overflow: hidden;
-}
-
-.product-page .carousel-image-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.product-page .carousel-image-container img {
+.our-clients .clients-carousel .client-logo img {
     width: auto;
-    max-width: 100%;
-    height: auto;
+    height: 60px; /* Consistent height for all logos */
     object-fit: contain;
-    border-radius: 10px;
-    max-height: 500px;
 }
 
-.product-page .slick-prev, 
-.product-page .slick-next {
-    background-color: rgba(9, 164, 63, 0.7);
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    z-index: 1000;
-    top: 50%;
-    transform: translateY(-50%);
+/* Ensure that Slick's default styles are not being overridden */
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.product-page .slick-prev:hover, 
-.product-page .slick-next:hover {
-    background-color: rgba(0, 95, 37, 0.9);
-}
-
-.product-page .slick-prev {
-    left: -60px; 
-}
-
-.product-page .slick-next {
-    right: -60px;
-}
-
-.product-page .slick-dots li button:before {
-    font-size: 12px;
-    color: #09a43f;
-}
-
-.product-page .slick-dots li.slick-active button:before {
-    color: #005d25;
-}
-
-.product-page .carousel-image-container img:hover {
-    transform: scale(1.02);
-    transition: transform 0.3s ease;
-}
-
-@media (max-width: 1200px) {
-    .product-page .product-carousel {
-        max-width: 700px;
-    }
+.slick-dots {
+    bottom: -30px;
 }
 
 @media (max-width: 992px) {
-    .product-page .product-carousel {
-        max-width: 600px;
+    .our-clients .clients-carousel .client-logo img {
+        height: 50px;
     }
 }
 
 @media (max-width: 768px) {
-    .product-page .product-carousel {
-        max-width: 100%;
-    }
-
-    .product-page .slick-prev, 
-    .product-page .slick-next {
-        display: none;
+    .our-clients .clients-carousel .client-logo img {
+        height: 40px;
     }
 }
 
 @media (max-width: 480px) {
-    .product-page .carousel-image-container img {
-        max-height: 250px;
+    .our-clients .clients-carousel .client-logo img {
+        height: 35px;
     }
-}
-
-/*----------------------------------------
-16. Product Page Specific Styles
-----------------------------------------*/
-
-.product-page .product-header {
-    text-align: left; 
-    margin-bottom: 60px;
-    padding: 20px 0;
-}
-
-.product-page .product-heading {
-    font-size: 2rem;
-    color: #09a43f;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    position: relative;
-    display: inline-block;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-}
-
-.product-page .product-heading::after {
-    content: '';
-    position: absolute;
-    left: 0; 
-    bottom: -6px; 
-    width: 40px; 
-    height: 3px; 
-    background-color: #09a43f; 
-    border-radius: 2px;
-    transition: width 0.3s ease;
-}
-
-.product-page .product-heading:hover::after {
-    width: 60px; 
-}
-
-.product-page .product-subheading {
-    font-size: 1rem; 
-    color: #555;
-    max-width: 700px;
-    margin: 0;
-    line-height: 1.6;
-    font-weight: 400;
-}
-
-@media (max-width: 768px) {
-    .product-page .product-heading {
-        font-size: 1.8rem;
-    }
-
-    .product-page .product-heading::after {
-        width: 30px;
-    }
-
-    .product-page .product-subheading {
-        font-size: 0.9rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .product-page .product-heading {
-        font-size: 1.6rem; 
-    }
-
-    .product-page .product-subheading {
-        font-size: 0.8rem;
-    }
-
-    .product-page .carousel-image-container img {
-        max-height: 250px;
-    }
-}
-
-/*----------------------------------------
-17. Testimonials Section Styles
-----------------------------------------*/
-.testimonials {
-    padding: 60px 0;
-    background-color: #fff;
-    border-radius: 10px;
-    margin-top: 40px;
-}
-
-.testimonials h3 {
-    text-align: center;
-    margin-bottom: 40px;
-    color: #09a43f;
-    font-size: 2rem;
-}
-
-.testimonials-carousel {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.testimonial-item {
-    background-color: #f9f9f9;
-    padding: 20px;
-    border-left: 5px solid #09a43f;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: background-color 0.3s ease;
-}
-
-.testimonial-item p {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-.testimonial-item h4 {
-    font-size: 1rem;
-    color: #09a43f;
-    text-align: right;
-}
-
-/*----------------------------------------
-18. Back to Top Button Styles
-----------------------------------------*/
-#backToTop {
-    position: fixed;
-    bottom: 100px;
-    right: 40px;
-    width: 50px;
-    height: 50px;
-    background-color: #09a43f;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    font-size: 2rem;
-    cursor: pointer;
-    display: none; /* Hidden by default */
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#backToTop:hover {
-    background-color: #007f2c;
-    transform: translateY(-3px);
-}
-
-/*----------------------------------------
-19. Download Brochure Button Styles
-----------------------------------------*/
-.download-brochure {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.download-brochure .btn {
-    background-color: #09a43f;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
-    font-size: 1rem;
-}
-
-.download-brochure .btn:hover {
-    background-color: #007f2c;
-    transform: translateY(-3px);
 }
 
 /*----------------------------------------

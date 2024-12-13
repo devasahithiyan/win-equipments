@@ -1,13 +1,12 @@
 // Initialize AOS (Animate On Scroll)
 AOS.init({
-    duration: 300, // Reduced animation duration for faster appearance
-    easing: 'ease-in-out', // Animation easing
-    once: true, // Whether animation should happen only once while scrolling down
-    offset: 100 // Offset (in px) from the original trigger point
+    duration: 300,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 100
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Toggle Menu for Mobile View
     const menuToggle = document.querySelector('.menu-toggle');
     const navUl = document.querySelector('nav ul');
 
@@ -18,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Smooth Scrolling for Navigation Links
     const navLinks = document.querySelectorAll('nav ul li a');
 
     navLinks.forEach(link => {
@@ -30,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 if (targetSection) {
                     window.scrollTo({
-                        top: targetSection.offsetTop - 80, 
+                        top: targetSection.offsetTop - 80,
                         behavior: 'smooth'
                     });
                 }
@@ -41,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Debounce Function
     function debounce(func, wait, immediate) {
         let timeout;
         return function() {
@@ -57,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function() {
         };
     }
 
-    // Highlight Active Link on Scroll
     window.addEventListener('scroll', debounce(function(){
         let scrollPos = window.scrollY;
         navLinks.forEach(link => {
@@ -76,36 +72,11 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }, 100));
 
-    // Trigger scroll event on page load
     window.dispatchEvent(new Event('scroll'));
 
-    // Initialize Slick Carousel for Product Page
     if (typeof jQuery !== 'undefined') {
         $(document).ready(function(){
-            // Main Product Carousel
-            $('.product-page .product-carousel').slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
-                slidesToShow: 1,
-                adaptiveHeight: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                arrows: true,
-                prevArrow: '<button type="button" class="slick-prev">Previous</button>',
-                nextArrow: '<button type="button" class="slick-next">Next</button>',
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            arrows: false,
-                            dots: true
-                        }
-                    }
-                ]
-            });
-
-            // Testimonials Carousel
+            // Testimonials Carousel (if applicable)
             $('.testimonials-carousel').slick({
                 dots: true,
                 infinite: true,
@@ -119,14 +90,67 @@ document.addEventListener("DOMContentLoaded", function() {
                 cssEase: 'linear'
             });
 
-            // Related Products Carousel - Removed
-            // Since Related Products section is removed, no need to initialize its carousel
+            // Product Carousel (if applicable)
+            if ($('.product-page .product-carousel').length) {
+                $('.product-page .product-carousel').slick({
+                    dots: true,
+                    infinite: true,
+                    speed: 500,
+                    slidesToShow: 1,
+                    adaptiveHeight: true,
+                    autoplay: true,
+                    autoplaySpeed: 3000,
+                    arrows: true,
+                    prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+                    nextArrow: '<button type="button" class="slick-next">Next</button>',
+                    responsive: [
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                arrows: false,
+                                dots: true
+                            }
+                        }
+                    ]
+                });
+            }
+
+            // Initialize Slick Carousel for Our Clients
+            $('.clients-carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 4
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }
+                ]
+            });
         });
     } else {
         console.error("jQuery is not loaded. Slick Carousel requires jQuery.");
     }
 
-    // Handle Model Loading in Product Page
     const productModel = document.getElementById('productModel');
     const modelLoader = document.getElementById('modelLoader');
 
@@ -141,7 +165,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Back to Top Button Functionality
     const backToTopBtn = document.getElementById('backToTop');
 
     window.addEventListener('scroll', () => {
